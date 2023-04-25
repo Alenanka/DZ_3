@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../style.css"> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<body>
+    <header class="header">
+        <div class="header-panel"> 
+          <img src="../travel/images/logo.png" alt="">
+          <p> 9- 18</p>
+          <p> +375297776567</p>
+          <form>
+            <input type="text" placeholder="Искать здесь...">
+            <button type="submit"><span class="material-symbols-outlined">
+                search
+                </span></button>
+          </form>
+        </div> 
+        <nav class="header-nav">
+          <a id="a1"  class="header-nav-link"> O Комании</a>    
+          <a href="#" class="header-nav-link"> Наши туры</a> 
+          <a href="#" class="header-nav-link"> Горящие путевки</a> 
+          <a href="#" class="header-nav-link">Контакт</a> 
+        </nav>
+        <div class="header-video" >
+            <video id="video1" muted="muted" autoplay="autoplay" src="../../travel/media/anytour.mp4"  >             
+            </video>
+        </div>
+        <div id="about" class="about">
+          <p  id="p2"> О компании</p>
+          <img src="" id="img_main">
+          <div class="about-info" >
+           <p >Откройте новые горизонты</p>
+           <div class="buttons" >
+             <button id="b1" >О компании</button>
+             <button id="b2">Почему нас выбирают</button>
+             <button id="b3">Наша миссия</button>
+           </div>
+            <p id="p1"> </p>
+         </div>
+     </div>
+ 
+      
+        
+<script>
+var i = 1;
+
+function viewImages() {
+        document.getElementById("img_main").src = `../travel/images/img${i}b.jpg`; 
+        i++;
+        if (i == 8) {
+            i = 1;
+        }
+        setTimeout("viewImages()",2000);
+    }   
+    viewImages();  
+
+     video1.onclick = function()
+      {
+        video1.pause();
+      }
+           
+      a1.onclick = function()
+      {
+        const el = document.getElementById('p2');
+        el.scrollIntoView({block: "start", inline: "center", behavior:"smooth"});
+      }
+           
+     b1.onclick= function(){
+        p1.innerHTML = "Мы команда профессионалов в туризме с опытом работы более 10 лет"
+                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";
+          
+      };
+      b2.onclick= function(){
+        p1.innerHTML = " DDDD DDDDМы команда профессионалов в туризме с опытом работы более 10 лет"
+                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";   
+      };
+           b3.onclick= function(){
+            p1.innerHTML = "МыsdcASAS команда профессионалов в туризме с опытом работы более 10 лет"
+                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";
+
+           };
+         
+           
+        </script>
+</body>
+</html>
