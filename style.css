@@ -53,7 +53,23 @@ video{
         justify-content: center;
     font-size: xx-large;}
     .about img {
-            padding: 4em;}
+            padding: 4em;
+            animation: infinite fadeIn 2s ;
+            }
+            @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+       
+        50%{
+            opacity: 1; 
+   
+        }
+        100% {
+            opacity: 0;
+
+        }
+        }
 
   .about-info{
     display: flex;
