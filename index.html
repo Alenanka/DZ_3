@@ -9,94 +9,273 @@
 <link rel="stylesheet" href="style.css"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <body>
-    <header class="header">
-        <div class="header-panel" > 
-          <img src="travel/images/logo.png" alt="">
-          <p> 9- 18</p>
-          <p> +375297776567</p>
-          <form>
-            <input type="text" placeholder="Искать здесь...">
-            <button type="submit"><span class="material-symbols-outlined">
-                search
-                </span></button>
-          </form>
-        </div> 
-        <nav class="header-nav">
-          <a id="a1"  class="header-nav-link"> O Комании</a>    
-          <a href="#" class="header-nav-link"> Наши туры</a> 
-          <a href="#" class="header-nav-link"> Горящие путевки</a> 
-          <a href="#" class="header-nav-link">Контакт</a> 
-        </nav>
-        <div class="header-video" >
-            <video id="video1" muted="muted" autoplay="autoplay" src="../../travel/media/anytour.mp4"  >             
+  <div class="grid-container">
+    <div class="header-panel">
+      <div>
+        <img src="travel/images/logo.png" alt="">
+      </div>
+      <div class="header-time">
+        <p><span class="material-symbols-outlined"> schedule</span> 9:00- 18:00</p>
+      </div>
+      <div class ="header-phone">
+          <p><span class="material-icons">call</span>+375297776567</p>
+      </div> 
+      <form class="search">
+        <input type="text" style="height: 25px; border: 2px solid #339a99 ; " placeholder="Поиск">
+          <button ><span  class="material-symbols-outlined">search</span></button>
+      </form>
+      </div> 
+      <nav class="header-nav">
+          <a  id="a_about" onclick="navmenu(id)"  class="header-nav-link"> O Комании</a>    
+          <a id="a_turs" onclick="navmenu(id)"class="header-nav-link"> Наши туры</a> 
+          <a id="a_hot_turs" onclick="navmenu(id)" class="header-nav-link"> Горящие путевки</a> 
+          <a id="a_contact" onclick="navmenu(id)"  class="header-nav-link">Контакт</a> 
+      </nav>
+      <div class="header-video" >
+            <video muted="muted" onclick="this.pause()" autoplay="autoplay" src="travel/media/anytour.mp4"  >             
             </video>
-        </div>
-        <div id="about" class="about">
-          <p  id="p2"> О компании</p>
+      </div>
+     
+      <div id="about" class="about">
+          <p  id="p_about"> О компании</p>
           <img src="" id="img_main">
           <div class="about-info" >
            <p >Откройте новые горизонты</p>
            <div class="buttons" >
-             <button id="b1" >О компании</button>
-             <button id="b2">Почему нас выбирают</button>
-             <button id="b3">Наша миссия</button>
+             <input type="button" onclick="change_about_text(id)"   id = "b1" value="О компании"></input>
+             <input type="button" onclick="change_about_text(id)"  id = "b2" value="Почему нас выбирают" ></input>
+             <input type="button" onclick="change_about_text(id)" id = "b3" value="Наша миссия" ></input>
            </div>
-            <p id="p1"> </p>
+            <p id="p_about_text"> </p>
+            <input type="button" id = "our_comand" onclick="navmenu(id)" value="Наша команда"></input>
          </div>
      </div>
- 
-      
-        
-<script>
-var i = 1;
-viewImages(); 
-b1.click();
-function viewImages() {
-        
-     el = document.getElementById("img_main");
-     el.src = `travel/images/img${i}b.jpg` 
-        i++;
-        if (i == 8) {
-            i = 1;
-        }
-        setTimeout("viewImages()",2000);
-    
-    }   
+
+     <div class="turs">
+      <p  id="p_turs"> Наши туры</p>
+       <div class="gallery" >
+        <div>
+          <img src="travel/images/trv1.jpg" id="img_france"  onclick="zoom_pic(`travel/images/trv1.jpg`)" > <h1> Франция </h1>   
+        </div>
+        <div>
+          <img src="travel/images/trv2.jpg"  id="img_italy" onclick="zoom_pic(`travel/images/trv2.jpg`)"  > <h1> Италия </h1>  
+        </div>
+        <div>
+        <img src="travel/images/trv3.jpg" id="img_egypt" onclick="zoom_pic(`travel/images/trv3.jpg`)" ><h1> Египет </h1>  
+        </div>
+        <div>
+        <img src="travel/images/trv4.jpg" id="img_dybai" onclick="zoom_pic(`travel/images/trv4.jpg`)" ><h1> Дубаи </h1> 
+       </div>
+        <div>
+        <img src="travel/images/trv5.jpg" id="img_spain" onclick="zoom_pic(`travel/images/trv5.jpg`)"  ><h1> Испания </h1> 
+       </div>
+        <div>
+        <img src="travel/images/trv6.jpg" id="img_africa" onclick="zoom_pic(`/travel/images/trv6.jpg`)"  ><h1> Африка </h1>  
+      </div>
+       </div>
+      <div id="div-img" class="div-img-close">
+        <img src=""  id="big_pict" onclick="hide_pic()" > 
+       </div> 
+     </div>
+     
+     
+    <div class="hot-turs">
+      <p  id="p_hot-turs"> Горящие путевки</p>
+      <div class="hot-turs-description">
+        <img src="travel/images/htour1.jpg">
+        <div class ="hot-turs-price" >
+        <h2>Бенидром, Испания</h2>
+        <input type="radio" value="5" >
+        <p>21 отзыв</p>
+        <p >Бенидорм — роскошный курорт в одном из самых знаменитых туристических районов Испании, на побережье Коста-Бланки. Здесь круглый год днем и ночью кипит жизнь, а комфортабельные песчаные пляжи Поньенте и Леванте, отмеченные Голубым флагом, гостеприимно встречают отдыхающих, приехавших сюда искупаться и позагорать. В Бенидорме туристов ожидает множество увлекательных и ярких впечатлений от знакомства с городом и путешествий по гостеприимному и живописному побережью.</p>
+        <input type="button" value="Купить за $790"></input>  
+      </div>
+      </div>
+      <div class="hot-turs-description">
+        <img src="travel/images/htour2.jpg">
+        <div class ="hot-turs-price" >
+        <h2>Остров Маврикий, Африка</h2>
+        <input type="radio" value="5" >
+        <p>21 отзыв</p>
+        <p >Бенидорм — роскошный курорт в одном из самых знаменитых туристических районов Испании, на побережье Коста-Бланки. Здесь круглый год днем и ночью кипит жизнь, а комфортабельные песчаные пляжи Поньенте и Леванте, отмеченные Голубым флагом, гостеприимно встречают отдыхающих, приехавших сюда искупаться и позагорать. В Бенидорме туристов ожидает множество увлекательных и ярких впечатлений от знакомства с городом и путешествий по гостеприимному и живописному побережью.</p>
+        <input type="button" value="Купить за $860"></input>  
+      </div>
+      </div>
+    </div>
      
 
-     video1.onclick = function()
-      {
-        video1.pause();
+    <div class="comand">
+      <p  id="p_comand"> Наша команда</p>
+      <div class="comand-info">
+        <div class="card" >
+         <img src="travel/images/user1.jpg" style="border-radius: 50%;">
+         <p>Виолетта Маркова</p>
+         <p>CEO</p>
+         <p>+375294567839</p>
+        </div>
+        <div class="card" >
+         <img src="travel/images/user2.jpg" style="border-radius: 50%;">
+         <p>Васильев Артемий</p>
+         <p>Турагент</p>
+         <p>+375294567839</p>
+        </div>
+        <div class="card" >
+          <img src="travel/images/user3.jpg" style="border-radius: 50%;">
+          <p>Белла Фокина</p>
+          <p>Консультант</p>
+          <p>+375294567839</p>
+        </div>
+        <div class="card" >
+          <img src="travel/images/user4.jpg" style="border-radius: 50%;">
+          <p> Владимир Егоров</p>
+          <p>PR менеджер</p>
+          <p>+375294567839</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="karta">
+      <p  id="p_karta"> Контакты</p>
+      <div style="position:relative;overflow:hidden; height: 500px;">
+        <a href="https://yandex.by/maps/157/minsk/?utm_medium=mapframe&utm_source=maps" 
+            style="color:#eee;font-size:12px;position:absolute;top:0px;">Минск</a>
+        <a href="https://yandex.by/maps/157/minsk/?feedback=object%2Fadd&feedback-context=map.context&ll=27.550946%2C53.902932&utm_medium=mapframe&utm_source=maps&z=16.08"
+            style="color:#eee;font-size:12px;position:absolute;top:14px;">Яндекс Карты</a><iframe src="https://yandex.by/map-widget/v1/?feedback=object%2Fadd&feedback-context=map.context&ll=27.550946%2C53.902932&z=16.08" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+      </div>
+    
+      <div class="message">
+        <p  id="p_message"> Отправить сообщение</p>
+        <form action="" class="action">
+          <input type="text" id="fname" name="fname" placeholder="Ваше имя">
+          <input type="email" id="mail" name="mail" placeholder="E-mail">
+          <input type="text" id="phone" name="phone" placeholder="Телефон">
+          <textarea name="comment" placeholder="Сообщение" style="height: 100px;" ></textarea>
+          <input type="submit" value="Отправить">
+        </form>
+      </div>
+    
+     
+      <div class="footer">
+        <div class="footer-info">
+          <p>КОНТАКТНАЯ ИНФОРМАЦИЯ</p>
+          <p ><span class="material-icons">call</span>+375297776567</p>
+          <p><span class="material-icons">mail</span> mail.dddd@hmail.com </p>
+          <p><span class="material-icons">near_me</span> Минск, Победителей 9 </p>
+
+        </div>
+        <div class="footer-info">
+          <p>МЕНЮ САЙТА</p>
+          <a  id="a_about" onclick="navmenu(id)"  > O Комании</a>    
+          <a id="a_turs" onclick="navmenu(id)"> Наши туры</a> 
+          <a id="a_hot_turs" onclick="navmenu(id)" > Горящие путевки</a> 
+          <a id="a_contact" onclick="navmenu(id)" class="header-nav-link">Контакт</a> 
+
+        </div>
+        <div class="footer-info">
+          <input type="button" style="width: 150px;" onclick="navmenu(`a_turs`)" value="Наши туры"></input>
+          <p style="font-size: x-small;">2019 Агенство путешествий</p>
+        </div>
+      </div>
+    
+      <div id="btn_up"  class="btn-up btn-up_hide"  onclick="window.scrollTo({top: 0,left: 0,behavior: 'smooth'});"></div>
+    </div>
+    
+</div>  
+<script>
+
+
+document.getElementById("b1").click();
+var i = 1;
+viewImages(); 
+
+function navmenu(id) {
+  switch (id)
+        {
+        case "a_turs" :  document.getElementById('p_turs').scrollIntoView({block: "start", inline: "center", behavior:"smooth"})
+        break;
+        case "a_about": document.getElementById('p_about').scrollIntoView({block: "start", inline: "center", behavior:"smooth"})
+        break;
+        case "a_hot_turs" :  document.getElementById('p_hot-turs').scrollIntoView({block: "start", inline: "center", behavior:"smooth"})
+        break;
+        case "a_contact": document.getElementById('p_karta').scrollIntoView({block: "start", inline: "center", behavior:"smooth"})
+        break;
+        case "our_comand": document.getElementById('p_comand').scrollIntoView({block: "start", inline: "center", behavior:"smooth"})
+        break;
+        
+        }
+}
+
+document.addEventListener("scroll",btn_scroll)
+function btn_scroll() 
+{
+      const scrollY = window.scrollY;
+      scrollY > 500 ? document.getElementById("btn_up").classList.remove('btn-up_hide') : document.getElementById("btn_up").classList.add('btn-up_hide');
+}
+
+
+function zoom_pic(path)
+{
+  document.getElementById('div-img').className = "div-img-big";
+  el1= document.getElementById('big_pict');
+  el1.src = path;
+}
+
+function hide_pic()
+{
+  document.getElementById('div-img').className = "div-img-close";
+}
+function viewImages() {
+ 
+  el = document.getElementById("img_main");
+  el.src = `travel/images/img${i}b.jpg` 
+    i++;
+    if (i == 8) {
+        i = 1;
       }
-           
-      a1.onclick = function()
+    setTimeout("viewImages()",2000);
+}   
+
+function change_about_text(id){
+  for (i=1;i<4;i++)
+  {
+    if (id == `b${i}`)
       {
-        const el = document.getElementById('p2');
-        el.scrollIntoView({block: "start", inline: "center", behavior:"smooth"});
+      document.getElementById(id).style.cssText = `background : #339a99; color : white`;
       }
-           
-     b1.onclick= function(){
-        p1.innerHTML = "Мы команда профессионалов в туризме с опытом работы более 10 лет"
+      else 
+      {
+      document.getElementById(`b${i}`).style.cssText = `background : white; color : black`;
+      }
+  }
+        switch (id)
+        {
+        case "b1" :      
+        p_about_text.innerHTML = "Мы команда профессионалов в туризме с опытом работы более 10 лет"
+                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+
+                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";
+        
+                        break;
+                        case "b2" :
+        p_about_text.innerHTML = " DDDD DDDDМы команда профессионалов в туризме с опытом работы более 10 лет"
+                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
+                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
+                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";   
+        break;
+                        case "b3" :
+        p_about_text.innerHTML = "МыsdcASAS команда профессионалов в туризме с опытом работы более 10 лет"
                         +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
                         "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
                         "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";
           
-      };
-      b2.onclick= function(){
-        p1.innerHTML = " DDDD DDDDМы команда профессионалов в туризме с опытом работы более 10 лет"
-                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
-                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
-                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";   
-      };
-           b3.onclick= function(){
-            p1.innerHTML = "МыsdcASAS команда профессионалов в туризме с опытом работы более 10 лет"
-                        +"и опытом личных путешествий более чем в 45 странах мира. Офис компании в Акапулько стал третьим офисом "+
-                        "сети наряду с офисами, открытыми ранее в Афинах и Лондоне. Мы знаем об отдыхе практически все, продолжая "+
-                        "совершенствовать свои знания каждый год. Мы много путешесвуем и открываем новые страны и маршруты, чтобы предложить их Вам.";
-
-           };
-         
-           
-        </script>
+        break; 
+       }
+      }
+  </script>
 </body>
 </html>
